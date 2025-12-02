@@ -32,8 +32,8 @@ router.post('/send-otp', async (req, res) => {
     // Generate OTP
     const otp = generateOTP();
     
-    // Store OTP
-    storeOTP(email, otp);
+    // Store OTP (NOW WITH AWAIT)
+    await storeOTP(email, otp);
     
     // Email options
     const mailOptions = {

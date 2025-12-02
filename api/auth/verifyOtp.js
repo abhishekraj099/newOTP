@@ -14,8 +14,8 @@ router.post('/verify-otp', async (req, res) => {
       });
     }
     
-    // Get stored OTP
-    const storedOTP = getOTP(email);
+    // Get stored OTP (NOW WITH AWAIT)
+    const storedOTP = await getOTP(email);
     
     if (!storedOTP) {
       return res.status(400).json({
@@ -32,8 +32,8 @@ router.post('/verify-otp', async (req, res) => {
       });
     }
     
-    // Delete OTP after successful verification
-    deleteOTP(email);
+    // Delete OTP after successful verification (NOW WITH AWAIT)
+    await deleteOTP(email);
     
     res.status(200).json({
       success: true,
